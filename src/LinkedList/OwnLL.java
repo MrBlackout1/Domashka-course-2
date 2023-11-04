@@ -1,5 +1,7 @@
 package LinkedList;
 
+import java.util.Arrays;
+
 public class OwnLL<T> {
 
     private Node<T> firstNode;
@@ -56,11 +58,16 @@ public class OwnLL<T> {
     }
 
     public T get(int index) {
-        Node<T> currentNode = firstNode;
-        for (int i = 0; i < index; i++) {
-            currentNode = currentNode.getNextNode();
+        if(index>=0 && index < size()) {
+            Node<T> currentNode = firstNode;
+            for (int i = 0; i < index; i++) {
+                currentNode = currentNode.getNextNode();
+            }
+            return currentNode.getValue();
         }
-        return currentNode.getValue();
+        else{
+            return (T) "Error: index out of boundary";
+        }
     }
 
     public static void main(String[] args) {
@@ -74,6 +81,8 @@ public class OwnLL<T> {
         System.out.println("ll.get(2) = " + ll.get(2));
         ll.remove(1);
         System.out.println("ll.get(1) = " + ll.get(1));
+
+        System.out.println("ll.get(10) = " + ll.get(10));
 
         System.out.println("size: " + ll.size());
 

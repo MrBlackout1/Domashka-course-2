@@ -28,11 +28,11 @@ public class MyArrayList<T> {
     }
 
     public T get(int index) {
-        if(index<size) {
+        if(index>=0 && index<size) {
             return (T) values[index];
         }
         else{
-            return (T) "out of boundary";
+            return (T) "Error: index out of boundary";
         }
     }
 
